@@ -35,23 +35,19 @@
 		</script>
 </head>
 <body>
-		<div id="wrapper">
+	<div id="wrapper">
 		<?php echo $this->element('header')?>
-		</div>
 		<!--  ==== Start Topic Path ==== -->
-	<div class="topic-path">
-		<div class="container">
-			<h1 class="pull-left"><?php echo $topic_path ?></h1>
+		<h1 class="pull-left"><?php //echo $topic_path ?></h1>
+		<!--  ==== End Topic Path ==== -->
+		<?php echo $this->fetch('content')?>
+		<!--  ==== Start Scroll Top ==== -->
+		<div class="scroll-up" style="display: none;">
+			<i class="fa fa-chevron-up fa-3"></i>
 		</div>
-	</div>
-	<!--  ==== End Topic Path ==== -->
-		<?php // echo $this->fetch('content')?>
-	<!--  ==== Start Scroll Top ==== -->
-	<div class="scroll-up" style="display: none;">
-		<i class="fa fa-chevron-up fa-3"></i>
-	</div>
-	<!--  ==== End Scroll Top ==== -->
+		<!--  ==== End Scroll Top ==== -->
 		<?php echo $this->element('footer')?>
-	</body>
+	</div>
+</body>
 <?php // echo $this->element ( 'author' ); ?>
 </html>

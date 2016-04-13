@@ -1,153 +1,81 @@
-<style>
-.col-md-12 {
-  width: 160%;
-}
-.container {
- margin-left:5px;
-}
-</style>
-<div class="breadcrumbs">
-	<div class="container">
-		<h1 class="pull-left">Table User</h1>
-		<ul class="pull-right breadcrumb">
-			<li><a href="#">User</a></li>
-			<li class="active"><a href="">list</li>
-		</ul>
-	</div>
-	
+<div class="container mgt20">
+	<h1 class="pull-left">Table User</h1>
 </div>
-<div class="container">	
+<div class="flash alignCenter">
+	<?php echo $this->Session->flash(); ?>
+</div>
+<div class="container">
 	<?php //debug($users)?>
-
-<div class="col-md-12">
+	<div class="col-md-12">
 		<div class="tab-v1">
 			<ul class="nav nav-tabs">
-				<li class="active"><?php
-				echo $this->Html->link ( 'Add New User', array (
-						'controller' => 'users',
-						'action' => 'add' 
-				) );
-				?></li>
-
-
+				<li class="active" style="float: right;"><?php echo $this->Html->link('Add New User', array ('controller' => 'users', 'action' => 'register'), array('style'=>'cursor: auto!important;')); ?></li>
 			</ul>
 		</div>
 		<div class="panel panel-grey margin-bottom-40">
 			<div class="panel-heading">
 				<h3 class="panel-title">
-					<i class="fa fa-user"></i> You are using user : <span
-						class="color-red"><?php echo $auth['username'];?></span>
+				<i class="fa fa-user"></i> You are using user : <span
+				class="color-red"><strong><?php echo $auth['username'];?></strong></span>
 				</h3>
-
 			</div>
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>ID</th>
 						<th>Username</th>
-						<th>Password</th>
 						<th>Role</th>
 						<th>Created</th>
-
+						<th colspan="2" class="alignCenter">Action</th>
 					</tr>
 				</thead>
 				<tbody>
-			<?php foreach ($users as $user): ?>
-				<tr>
+					<?php foreach ($users as $user): ?>
+					<tr>
 						<td><?php echo $user['User']['id']; ?></td>
 						<td> <?php
-				
-				echo $this->Html->link ( $user ['User'] ['username'], array (
-						'controller' => 'users',
-						'action' => 'view',
-						$user ['User'] ['id'] 
-				) );
-				?></td>
-
+								echo $this->Html->link ( $user ['User'] ['username'], array (
+										'controller' => 'users',
+										'action' => 'view',
+										$user ['User'] ['id']
+								) );
+							?>
+						</td>
+						<td> <?php echo $user ['User'] ['role']; ?></td>
+						<td> <?php echo $user ['User'] ['created']; ?></td>
 						<td>
-					 <?php
-				
-				echo $this->Html->link ( $user ['User'] ['password'], array (
-						'controller' => 'users',
-						'action' => 'view',
-						$user ['User'] ['id'] 
-				) );
-				?>
-					</td>
-						<td>
-					 <?php
-				
-				echo $this->Html->link ( $user ['User'] ['role'], array (
-						'controller' => 'users',
-						'action' => 'view',
-						$user ['User'] ['id'] 
-				) );
-				?>
-					</td>
-
-						<td>
-					 <?php
-				
-				echo $this->Html->link ( $user ['User'] ['created'], array (
-						'controller' => 'users',
-						'action' => 'view',
-						$user ['User'] ['id'] 
-				) );
-				?>
-					</td>
-
-
-						<td><a class="btn btn-danger btn-xs"> <?php
-				echo $this->Html->link ( 'Edit', array (
-						'action' => 'edit',
-						$user ['User'] ['id'] 
-				) );
-				?></a> <a class="btn btn-warning btn-xs">
-					 <?php
-				echo $this->Form->postLink ( 'Delete', array (
-						'action' => 'delete',
-						$user ['User'] ['id'] 
-				), array (
-						'confirm' => 'Are you sure?' 
-				) );
-				?>
-					</a></td>
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							<?php
+								echo $this->Html->link (
+									'Edit',
+									array (
+										'action' => 'edit',
+										$user ['User'] ['id']
+									)
+								);
+							?>
+						</td>
+						<td align="center">
+							<?php
+								if($auth['id'] != $user ['User'] ['id']) {
+									echo '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ';
+									echo $this->Form->postLink (
+										'Delete',
+										array (
+											'action' => 'delete',
+											$user ['User'] ['id']
+										),
+										array (
+											'confirm' => 'Are you sure?'
+										)
+									);
+								}
+							?>
+						</td>
 					</tr>
 				</tbody>
-			<?php endforeach; ?>
-		</table>
+				<?php endforeach; ?>
+			</table>
 		</div>
-
-
-		<div class="col-md-12">
-			<div class="tab-v1">
-				<ul class="nav nav-tabs">
-					<li class="active"><?php
-					echo $this->Html->link ( 'Logout ', array (
-							'controller' => 'users',
-							'action' => 'logout' 
-					) );
-					?></li>
-					<li class="active"><?php
-					echo $this->Html->link ( 'Manage Staff ', array (
-							'controller' => 'staffs',
-							'action' => 'index' 
-					) );
-					?></li>
-					<li class="active"><?php
-				echo $this->Html->link ( 'View Your User ', array (
-						'controller' => 'users',
-						'action' => 'view',
-						$auth ['id'] 
-				) );
-				?>
-				</li>
-
-
-				</ul>
-			</div>
-		</div>
-
-
 	</div>
 </div>
