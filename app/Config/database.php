@@ -7,7 +7,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'page',
+		'database' => 'nghenhinaudio',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);

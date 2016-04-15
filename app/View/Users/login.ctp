@@ -1,54 +1,29 @@
-<div class="breadcrumbs">
-	<div class="container">
-		<h1 class="pull-left">Login</h1>
-		<ul class="pull-right breadcrumb">
-			<li><a href="">User</a></li>
-			<li class="active"><a href="">Login</li>
-		</ul>
-	</div>
-	<!--/container-->
-</div>
-<div class="container content">
-	<div class="tab-v1">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#home-1" data-toggle="tab">Note: You need
-					login to change </a></li>
-
-		</ul>
-	</div>
-	<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-		<?php echo $this->Form->create('User',array('class'=>'reg-page')); ?>
-		
-		<div class="reg-header">
-			<h2>Login to your account</h2>
-		</div>
-		<div class="input-group margin-bottom-20">
-			<span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <?php echo $this->Form->input ('username',array('label'=>false,'placeholder'=>'Username','class'=>'form-control')); ?>                       
-                    </div>
-
-		<div class="input-group margin-bottom-20">
-			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <?php echo $this->Form->input('password',array('label'=>false,'placeholder'=>'Password','class'=>'form-control')); ?>
-                       
-                    </div>
-		<div class="row">
-			
-			<div class="col col-6 checkbox">
-				<label class="checkbox"><input type="checkbox" name="remember"
-					checked=""><i></i>Keep me logged in</label>
+<div class="apollo">
+	<div class="apollo-container clearfix">
+		<div class="apollo-facebook">
+			<div class="apollo-image">
+				<img src="https://lh3.googleusercontent.com/-9IkEDZetZ_s/VtO1lKuV1AI/AAAAAAAAEyk/bG-ldKh3hjYJc6M4WEn4L36iW8DYLYp4g/w139-h140-p/hungnup.png" width="100%">
 			</div>
-			<div class="col-md-6">
-                        <button type="submit" class="btn-u"><?php echo __('Login')?></button>
-                                        
-                        </div>
-		</div>
-		
-		<hr>
-		<h4>If have you had account yet ?</h4>
-		 <p>Click here: <?php echo $this->Html->link('Register',array('controller'=>'users', 'action'=>'add'))?> 
-		
-		</p>
 		</div>
 
+		<div class="error alignCenter mgbt10">
+			<?php echo $this->Session->flash(); ?>
+		</div>
+
+		<div class="apollo-login">
+			<a href="http://vietoregon-tech.com/?lang=vn" class="btn btn-block btn-facebook btn-lg" target="_blank">Designed by <strong>Việt Oregon</strong></a>
+			<p class="apollo-seperator mgbt20">&nbsp</p>
+			<form action="login" id="UserLoginForm" method="post" accept-charset="utf-8" class="form-signin">
+				<div class="form-group">
+					<input name="data[User][username]" maxlength="50" type="text" id="UserUsername" required="required" class="form-control username">
+				</div>
+				<div class="form-group input password required">
+					<input name="data[User][password]" type="password" id="UserPassword" required="required" class="form-control">
+				</div>
+				<div class="submit">
+					<input class="btn btn-lg btn-signin btn-block" value="Sign in" type="submit">
+				</div>
+			</form>
+		</div>
+	</div>
 </div>

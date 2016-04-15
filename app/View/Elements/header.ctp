@@ -1,5 +1,4 @@
-<div id="wrapper">
-	<header id="header">
+<header id="header">
 		<nav class="navbar navbar-custom navbar-fixed-top navbar-default"
 			role="navigation">
 			<div class="container relative">
@@ -476,4 +475,3 @@
 			</div>
 		</nav>
 	</header>
-</div>

@@ -1,6 +1,6 @@
 
-<meta name="description" content="<?php echo $description_for_meta ?>">
-<meta name="keywords" content="<?php echo $keyword_for_meta ?>">
+<meta name="description" content="<?php //echo $description_for_meta ?>">
+<meta name="keywords" content="<?php //echo $keyword_for_meta ?>">
 <meta name="author" content="<?php echo __('META_AUTHOR') ?>">
 
 <meta property="og:title" content="<?php echo __("OG_1") ?>" />

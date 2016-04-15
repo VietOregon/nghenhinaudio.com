@@ -1,94 +1,70 @@
-
-<div class="breadcrumbs">
-	<div class="container">
-		<h1 class="pull-left">Edit User</h1>
-		<ul class="pull-right breadcrumb">
-			<li><a href="">User</a></li>
-			<li class="active"><a href="">edit</li>
-		</ul>
-	</div>
-	<!--/container-->
+<div class="breadcrumbs container">
+	<ol class="pull-right breadcrumb">
+		<li>
+			<?php
+				echo $this->Html->link ( 'View user', array (
+					'controller' => 'users',
+					'action' => 'view',
+					$user["User"]["id"]
+				) );
+			?>
+		</li>
+		<li class="active">edit</li>
+	</ol>
 </div>
-<div class="container content">
-
+<div class="alignCenter">
+	<?php if(isset($errors)) {
+		echo '<ul>';
+		foreach ($errors as $error):
+				echo '<li class="error">'.$error[0].'</li>';
+		endforeach;
+		echo '</ul>';
+	}?>
+</div>
+<div class="flash">
+	<?php echo $this->Session->flash(); ?>
+</div>
+<div class="container content mgbt20">
 	<div class="tab-v1">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#home-1" data-toggle="tab">Edit User </a></li>
-
+			<li class="active"><a href="#" data-toggle="tab">Edit User</a></li>
 		</ul>
 	</div>
-
 </div>
-<div class="container content-sm">
+<div class="container">
 	<div class="row about-me">
-		<div class="col-sm-4 shadow-wrapper md-margin-bottom-40">
-			<div class="box-shadow shadow-effect-2">
-				<img class="img-responsive img-bordered full-width"
-					src="/img/user/User-icon.png" alt="">
-
+		<div class="col-sm-4 col-md-4 shadow-wrapper">
+			<div class="shadow-effect-2">
+				<img src='<?php echo $base_url; ?>img/staff/cnn.jpg' width="80%" alt="profile picture">
 			</div>
 		</div>
-		<div class="col-sm-4">
-		<?php echo $this->Form->create('User',array('class'=>'sky-form','novalidate'=>'novalidate')); ?>
-		
-				<header>Edit User</header>
-			<fieldset>
-				<section>
-					<label class="input"> <i class="icon-append fa fa-user"></i> 
-						 <?php  echo $this->Form->input ( 'username',array('type'=>'text','label'=>false,'placeholder'=>'NewUserName') ); ?>   
-						<b
-						class="tooltip tooltip-bottom-right">Needed to enter the website</b>
-					</label>
-				</section>
+		<div class="col-sm-8 col-md-8">
+			<h2 class="pdbt10">Change user information</h2>
+			<?php 
+				echo $this->Form->create('User');
 				
+				echo $this->Form->input ( 'username', array('type'=>'text','label'=>false,'placeholder'=>'Username', 'class'=>'form-control mgt20 required') );
 
-				<section>
-					<label class="input"> <i class="icon-append fa fa-lock"></i>
-					 <?php  echo $this->Form->input ( 'password',array('label'=>false,'placeholder'=>'New Password','class'=>'form-control') ); ?>
-					 <b class="tooltip tooltip-bottom-right">Don't
-							forget your password</b>
-					</label>
-				</section>
+				echo $this->Form->input ( 'password',array('label'=>false,'placeholder'=>'New Password','class'=>'form-control mgt20 required') );
 
-				<section>
-					<label class="input"> <i class="icon-append fa fa-lock"></i>
-					<?php  echo $this->Form->input ( 'password',array('label'=>false,'placeholder'=>'Confirm New Password','class'=>'form-control') ); ?> <b
-						class="tooltip tooltip-bottom-right">Don't forget your password</b>
-					</label>
-				</section>
-			</fieldset>
-			<fieldset>
-				<section>
-					<label class="select"> 
-					
-					<?php
-						echo $this->Form->input ( 'role', array (
-													'label' => false,
-														'options' => array (
-															'admin' => 'Admin',
-																'author' => 'Author' 
-																	) 
-																		) );
-																			?>
-					
-					</label>														
-				</section>
+				echo $this->Form->input ( 'password_confirm',array('label'=>false,'placeholder'=>'Confirm New Password','class'=>'form-control mgt20 required', 'type' => 'password') );
 
-			</fieldset>
-			<footer>
-				<button type="submit" class="btn-u"><?php echo __('Save')?></button>
-			</footer>
+				echo $this->Form->input ( 'role', array (
+					'label' => false,
+					'options' => array (
+						'admin' => 'Admin',
+						'author' => 'Author'
+					),
+					'class' => 'mgt20',
+					'style' => "padding: 7px;"
+				));
 
-			<hr>
-			<h4> 	 <?php
-			echo $this->Html->link ( 'Comeback', array (
-					'action' => 'view',
-					$user ['User'] ['id'] 
-			) );
-			?>		
-		</h4>
+				echo $this->Form->input('id', array('type' => 'hidden'));
+			?>
+			<div class="alignCenter mgt20">
+				<button type="submit" class="btn-u"><?php echo __('Update')?></button>
+			</div>
 		</div>
-
 	</div>
 </div>
 

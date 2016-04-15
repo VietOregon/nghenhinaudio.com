@@ -2,7 +2,11 @@
 App::uses ( 'AppController', 'Controller' );
 App::uses ( 'CakeEmail', 'Network/Email' );
 class HomeController extends AppController {
-	
+	public function beforeFilter() {
+        parent::beforeFilter();
+
+        $this->Auth->allow();
+    }
 	public function top() {
 		$this->set ( 'title_for_layout', __ ( 'TITLE_1' ) );
 		$this->set ( 'description_for_meta', __ ( 'META_DESCRIPTION_1' ) );
