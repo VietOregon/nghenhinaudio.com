@@ -32,7 +32,7 @@
 		<!--  ==== Start Topic Path ==== -->
 		<?php if(isset($auth) && $auth != null) { ?>
 		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container-fluid">
+			<div class="">
 				<div class="navbar-header">
 					<?php echo $this->Html->link(
 						'View Homepage',
@@ -48,13 +48,8 @@
 						<li class="">
 							<?php
 								if ($auth["role"] == 'admin') {
-									echo $this->Html->link('User', array ('controller' => 'users', 'action' => 'index'));
+									echo $this->Html->link('User', array ('controller' => 'users', 'action' => 'index'), array('style' => 'padding-top:17px;'));
        							}
-							?>
-						</li>
-						<li class="active">
-							<?php
-								echo $this->Html->link('Documents', array ('controller' => 'documents', 'action' => 'manage'));
 							?>
 						</li>
 						<!-- <li class="dropdown">
@@ -68,9 +63,9 @@
 							</ul>
 						</li> -->
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-paw"></i> Welcome  <?php echo '<strong>'.$auth["username"].'</strong>'; ?>&nbsp;<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-paw" style="padding: 10px 0;"></i> Welcome  <?php echo '<strong>'.$auth["username"].'</strong>'; ?>&nbsp;<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li>
 									<?php echo $this->Html->link('Profile', array ('controller' => 'users', 'action' => 'view', $auth['id'])); ?>

@@ -1,5 +1,4 @@
-<div id="wrapper">
-	<footer id="footer">
+<footer id="footer">
 		<div class="container">
 			<div class="row Module Module-140">
 				<div class="ModuleContent">
@@ -131,15 +130,12 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-			<hr>
-			<div class="row">
-				<div class="col-sm-8 Module Module-142">
-					<div class="ModuleContent">
-						<p>   Thiết kế bởi Công Ty Đầu Tư Phát Triển Công Nghệ Truyền Thông Việt-Oregon © Năm 2016. <a href="http://vietoregon-tech.com/?lang=vn" target ="_blank">http://vietoregon-tech.com</a>  </p>
-					</div>
-				</div>
-				
+<div class="container" style="margin-top: 15px;">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 Module Module-142">
+			<div class="ModuleContent">
+				<p>   Thiết kế bởi Công Ty Đầu Tư Phát Triển Công Nghệ Truyền Thông Việt-Oregon © Năm 2016. <a href="http://vietoregon-tech.com/?lang=vn" target ="_blank">http://vietoregon-tech.com</a>  </p>
 			</div>
 		</div>
-	</footer>
+	</div>
 </div>
