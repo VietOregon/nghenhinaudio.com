@@ -2593,7 +2593,7 @@ ul.result-stats li.active a, ul.result-stats li:hover a {
   .navbar-nav .open .dropdown-menu {
     margin: 0;
     padding: 15px;
-    min-width: 980px;
+    min-width: 740px;
     left: 0;
   }
   .navbar-nav .open .dropdown-menu .content ul.list-unstyled li p {
