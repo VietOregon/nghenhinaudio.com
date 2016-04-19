@@ -1,12 +1,74 @@
 <div id="main">
   <div id="ctl00_divCenter" class="middle-fullwidth">
-    <div class="slider">
-      <ul class="bxslider">
-        <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-pendulumic-banner-op.jpg" /></li>
-        <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-banner-master-and-dynamic-mh40-op.jpg" /></li>
-        <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-pendulumic-banner-op.jpg" /></li>
-        <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-banner-master-and-dynamic-mh40-op.jpg" /></li>
-      </ul>
+    <div class="row">
+      <div class="slider">
+          <!-- Slideshow 1 -->
+          <div class="rslides_container">
+            <ul class="rslides" id="slider1">
+              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-pendulumic-banner-op.jpg" /></li>
+              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-banner-master-and-dynamic-mh40-op.jpg" /></li>
+              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-pendulumic-banner-op.jpg" /></li>
+              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-banner-master-and-dynamic-mh40-op.jpg" /></li>
+            </ul>
+          </div>
+      </div>
+      <script type="text/javascript">
+        $(function () {
+            $("#slider1").responsiveSlides({
+              auto: false,
+              pager: true,
+              nav: true,
+              speed: 300,
+              namespace: "centered-btns"
+            });
+          });
+      </script>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 Module Module-159">
+          <div class="ModuleContent">
+            <section id="new" class="section alternate p0">
+              <div class="block block-new">
+                <div class="header alternate mb0">
+                  <div class="wrap">
+                    <ul class="pull-left list-inline tab-p">
+                      <li class="disable">
+                        <span>Xem theo tab:</span>
+                      </li>
+                      <li class="active">
+                        <a href="#" target="_self">
+                          <span><i class="ic ic-2"></i></span>Headphones
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" target="_self">
+                          <span><i class="ic ic-3"></i></span>DAC / AMP
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" target="_self">
+                          <span><i class="ic ic-4"></i></span>Máy nghe nhạc
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" target="_self">
+                          <span><i class="ic ic-5"></i></span>Speaker
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" target="_self">
+                          <span><i class="ic ic-6"></i></span>Phụ kiện
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container">
       <div class="row">

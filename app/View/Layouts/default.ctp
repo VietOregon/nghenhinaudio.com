@@ -33,12 +33,6 @@
 			echo $this->element ( 'css' );
 			echo $this->element ( 'js' );
 		?>
-
-		<script type="text/javascript">
-			$(document).ready(function(){
-			  $('.bxslider').bxSlider();
-			});
-		</script>
 	</head>
 	<body>
 		<div id="wrapper">

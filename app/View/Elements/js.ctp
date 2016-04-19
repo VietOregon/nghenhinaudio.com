@@ -14,7 +14,7 @@ echo $this->Html->script ( '/js/src/app.js' ) . PHP_EOL;
 echo $this->Html->script ( '/js/src/player.js' ) . PHP_EOL;
 echo $this->Html->script ( '/js/src/vuid.min.js' ) . PHP_EOL;
 echo $this->Html->script ( '/js/src/ga.js' ) . PHP_EOL;
-echo $this->Html->script ( '/js/src/jquery.bxslider.js' ) . PHP_EOL;
+echo $this->Html->script ( '/js/src/responsiveslides.min.js' ) . PHP_EOL;
 echo $this->Html->script ( '/js/build/main.min.js' ) . PHP_EOL;
 echo $this->Html->script ( '/js/src/slider_product/jquery.contentcarousel.js' ) . PHP_EOL;
 echo $this->Html->script ( '/js/src/slider_product/jquery.easing.1.3.js' ) . PHP_EOL;
