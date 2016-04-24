@@ -83,6 +83,7 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		$this->__switch_lang ();
         $this->layout = 'default';
+        $this->set('appRoot', $this->base);
     }
 
 	function beforeRender() {

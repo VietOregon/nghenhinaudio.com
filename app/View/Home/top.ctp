@@ -14,22 +14,22 @@
       </div>
       <script type="text/javascript">
         $(function () {
-            $("#slider1").responsiveSlides({
-              auto: false,
-              pager: true,
-              nav: true,
-              speed: 300,
-              namespace: "centered-btns"
-            });
+          $("#slider1").responsiveSlides({
+            auto: false,
+            pager: true,
+            nav: true,
+            speed: 300,
+            namespace: "centered-btns"
           });
-          $(document).ready(function() {
-            $('#myCarousel1').carousel({
-              interval: 6000
-            });
-            $('#myCarousel2').carousel({
-              interval: 6000
-            });
+        });
+        $(document).ready(function() {
+          $('#myCarousel1').carousel({
+            interval: false
           });
+          $('#myCarousel2').carousel({
+            interval: false
+          });
+        });
       </script>
     </div>
     <div class="container mgt10">
