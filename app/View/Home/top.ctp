@@ -14,17 +14,25 @@
       </div>
       <script type="text/javascript">
         $(function () {
-            $("#slider1").responsiveSlides({
-              auto: false,
-              pager: true,
-              nav: true,
-              speed: 300,
-              namespace: "centered-btns"
-            });
+          $("#slider1").responsiveSlides({
+            auto: false,
+            pager: true,
+            nav: true,
+            speed: 300,
+            namespace: "centered-btns"
           });
+        });
+        $(document).ready(function() {
+          $('#myCarousel1').carousel({
+            interval: false
+          });
+          $('#myCarousel2').carousel({
+            interval: false
+          });
+        });
       </script>
     </div>
-    <div class="container">
+    <div class="container mgt10">
       <div class="row">
         <div class="col-sm-12 Module Module-159">
           <div class="ModuleContent">
@@ -79,113 +87,105 @@
                 <div class="header alternate">
                   <h3 class="title ic-com1">Sản phẩm mới</h3>
                 </div>
-                <section id="new" class="section alternate p0">
-                  <div class="block block-new">
-                    <div id="ca-container" class="ca-container">
-                      <div class="ca-wrapper">
-                        <div class="ca-item ca-item-1">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/879/3kshop-audeze-lcd4-op-1.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
+                <div class="container-fluid">
+                  <div class="row-fluid">
+                    <div class="span12">
+                      <div class="carousel slide" id="myCarousel1">
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <ul class="thumbnails">
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1111/3kshop-jbl-everest-elite-300-white-1.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1253/3kshop-klipsch-image-x7i-1.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="item">
+                            <ul class="thumbnails">
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1260/3kshop-fiio-em3-cover.png" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/865/3kshop-bose-quietcomfort-20i-white.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1311/3kshop-sony-mdr-zx310ap-1.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1256/3kshop-klipsch-s3m-2.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter"> 
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
                         </div>
-                        <div class="ca-item ca-item-2">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1255/3kshop-klipsch-r6i-1.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="ca-item ca-item-3">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1279/3kshop-noble-savant-al.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="ca-item ca-item-4">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1286/3kshop-westone-am-pro-30-1.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="ca-item ca-item-5">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1240/3kshop-audio-technica-cks-550is-1.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="ca-item ca-item-6">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1237/3kshop-audio-technica-cks-1100is-1.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="ca-item ca-item-7">
-                          <div class="ca-item-main">
-                            <a class="img" href="#" target="_self" title="iFi DC iPurifier">
-                              <figure>
-                                <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1187/3kshop-beatsbydre-urbeats-rose-gold-edition-1.jpg" alt="iFi DC iPurifier">
-                              </figure>
-                            </a>
-                              <div class="caption">
-                                <h4 href="#" target="_self" title="FiiO K5">Shure KSE 1500</h4>
-                                <span class="price">3.000.000 ₫</span>
-                              </div>
-                          </div>
+                        <div class="control-box">
+                          <a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
+                          <a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
                         </div>
                       </div>
                     </div>
                   </div>
-                </section>
+                </div>
               </div>
             </section>
           </div>
         </div>
       </div>
-      <script type="text/javascript">
-      $('#ca-container').contentcarousel();
-      </script>
     </div>
     <div class="container">
       <div class="row">
@@ -196,233 +196,96 @@
                 <div class="header alternate">
                   <h3 class="title ic-com2">Sản phẩm sắp về</h3>
                 </div>
-                <div class="slider">
-                  <div class="owl-carousel owl-theme owl-loaded">
-                    <div class="owl-stage-outer">
-                      <div class="owl-stage" style="transform: translate3d(-1139px, 0px, 0px); transition: 1s; width: 3986.5px;">
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/teac-ud-503-1" target="_self" title="Teac UD-503">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1210/3kshop-teac-ud-503-1.jpg" alt="Teac UD-503">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/teac-ud-503-1" target="_self" title="Teac UD-503">Teac UD-503</h3>
-                              <span class="price">18.900.000 ₫</span>
-                            </div>
+                <div class="container-fluid">
+                  <div class="row-fluid">
+                    <div class="span12">
+                      <div class="carousel slide" id="myCarousel2">
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <ul class="thumbnails">
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1111/3kshop-jbl-everest-elite-300-white-1.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1253/3kshop-klipsch-image-x7i-1.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="item">
+                            <ul class="thumbnails">
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1260/3kshop-fiio-em3-cover.png" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/865/3kshop-bose-quietcomfort-20i-white.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1311/3kshop-sony-mdr-zx310ap-1.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                              <li class="span3">
+                                <div class="thumbnail">
+                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1256/3kshop-klipsch-s3m-2.jpg" alt=""></a>
+                                </div>
+                                <div class="caption alignCenter">
+                                  <h4>650.000 đ</h4>
+                                  <p>Praesent commodo</p>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
                         </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/fiio-a1-1" target="_self" title="FiiO A1">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1009/3kshop-fiio-a1-1.jpg" alt="FiiO A1">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/fiio-a1-1" target="_self" title="FiiO A1">FiiO A1</h3>
-                              <span class="price">650.000 ₫</span>
-                            </div>
-                            <div class=" bage new">Mới</div>
-                          </div>
+                        <div class="control-box">
+                          <a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
+                          <a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
                         </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/audeze-the-king-2" target="_self" title="Audeze The King">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1000/3kshop-audeze-the-king-amp-1.jpg" alt="Audeze The King">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/audeze-the-king-2" target="_self" title="Audeze The King">Audeze The King</h3>
-                            </div>
-                            <div class=" bage new">Mới</div>
-                          </div>
-                        </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/hifiman-ef1000-1" target="_self" title="HifiMan EF1000">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/87/3kshop-hifiman-ef1000.png" alt="HifiMan EF1000">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/hifiman-ef1000-1" target="_self" title="HifiMan EF1000">HifiMan EF1000</h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item active" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/chord-dave-1" target="_self" title="Chord DAVE">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1268/3kshop-chord-electronics-dave-1.jpg" alt="Chord DAVE" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/chord-dave-1" target="_self" title="Chord DAVE">Chord DAVE</h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item active" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/chord-hugo-tt-1" target="_self" title="Chord Hugo TT">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1267/3kshop-chord-electronics-hugo-tt-1.jpg" alt="Chord Hugo TT" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/chord-hugo-tt-1" target="_self" title="Chord Hugo TT">Chord Hugo TT</h3>
-                              <span class="price">106.000.000 ₫</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item active" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/teac-ud-503-1" target="_self" title="Teac UD-503">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1210/3kshop-teac-ud-503-1.jpg" alt="Teac UD-503" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/teac-ud-503-1" target="_self" title="Teac UD-503">Teac UD-503</h3>
-                              <span class="price">18.900.000 ₫</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item active" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/fiio-a1-1" target="_self" title="FiiO A1">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1009/3kshop-fiio-a1-1.jpg" alt="FiiO A1" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/fiio-a1-1" target="_self" title="FiiO A1">FiiO A1</h3>
-                              <span class="price">650.000 ₫</span>
-                            </div>
-                            <div class=" bage new">Mới</div>
-                          </div>
-                        </div>
-                        <div class="owl-item" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/audeze-the-king-2" target="_self" title="Audeze The King">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1000/3kshop-audeze-the-king-amp-1.jpg" alt="Audeze The King" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/audeze-the-king-2" target="_self" title="Audeze The King">Audeze The King</h3>
-                            </div>
-                            <div class=" bage new">Mới</div>
-                          </div>
-                        </div>
-                        <div class="owl-item" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/hifiman-ef1000-1" target="_self" title="HifiMan EF1000">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/87/3kshop-hifiman-ef1000.png" alt="HifiMan EF1000" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/hifiman-ef1000-1" target="_self" title="HifiMan EF1000">HifiMan EF1000</h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/chord-dave-1" target="_self" title="Chord DAVE">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1268/3kshop-chord-electronics-dave-1.jpg" alt="Chord DAVE" title="" style="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/chord-dave-1" target="_self" title="Chord DAVE">Chord DAVE</h3>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/chord-hugo-tt-1" target="_self" title="Chord Hugo TT">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1267/3kshop-chord-electronics-hugo-tt-1.jpg" alt="Chord Hugo TT" title="">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/chord-hugo-tt-1" target="_self" title="Chord Hugo TT">Chord Hugo TT</h3>
-                              <span class="price">106.000.000 ₫</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/teac-ud-503-1" target="_self" title="Teac UD-503">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1210/3kshop-teac-ud-503-1.jpg" alt="Teac UD-503">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/teac-ud-503-1" target="_self" title="Teac UD-503">Teac UD-503</h3>
-                              <span class="price">18.900.000 ₫</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="owl-item cloned" style="width: 284.75px; margin-right: 0px;">
-                          <div class="prd-item text-center sale">
-                            <div class="thumb">
-                              <a class="img" href="http://www.3kshop.vn/fiio-a1-1" target="_self" title="FiiO A1">
-                                <figure>
-                                  <img class="img-responsive" src="http://www.3kshop.vn/Data/Sites/1/Product/1009/3kshop-fiio-a1-1.jpg" alt="FiiO A1">
-                                </figure>
-                              </a>
-                            </div>
-                            <div class="caption">
-                              <h3 href="http://www.3kshop.vn/fiio-a1-1" target="_self" title="FiiO A1">FiiO A1</h3>
-                              <span class="price">650.000 ₫</span>
-                            </div>
-                            <div class=" bage new">Mới</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="owl-controls">
-                      <div class="owl-nav">
-                        <div class="owl-prev" style="">
-                          <i class="fa fa-angle-left">
-                          </i>
-                        </div>
-                        <div class="owl-next" style="">
-                          <i class="fa fa-angle-right">
-                          </i>
-                        </div>
-                      </div>
-                      <div class="owl-dots" style="display: none;">
                       </div>
                     </div>
                   </div>

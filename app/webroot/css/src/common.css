@@ -4,6 +4,12 @@
 .alignCenter {
 	text-align: center;
 }
+.alignRight {
+	text-align: right;
+}
+.alignLeft {
+	text-align: left;
+}
 .error {
 	color: red;
 }
@@ -50,7 +56,7 @@
 	padding-left: 10px;
 }
 .pdl20 {
-	padding-left: 20px;
+	padding-left: 20px!important;
 }
 .pdr10 {
 	padding-right: 10px;

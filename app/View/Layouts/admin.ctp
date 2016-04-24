@@ -52,6 +52,20 @@
        							}
 							?>
 						</li>
+						<li class="">
+							<?php
+								if ($auth["role"] == 'admin') {
+									echo $this->Html->link('Categories', array ('controller' => 'categories', 'action' => 'index'), array('style' => 'padding-top:17px;'));
+       							}
+							?>
+						</li>
+						<li class="">
+							<?php
+								if ($auth["role"] == 'admin') {
+									echo $this->Html->link('Products', array ('controller' => 'products', 'action' => 'index'), array('style' => 'padding-top:17px;'));
+       							}
+							?>
+						</li>
 						<!-- <li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -83,6 +97,7 @@
 		<?php } ?>
 		<!--  ==== End Topic Path ==== -->
 		<?php echo $this->fetch('content')?>
+		<input type="hidden" value="<?php echo $base_url;?>" id="appRoot" />
 		<!--  ==== Start Scroll Top ==== -->
 		<div class="scroll-up" style="display: none;">
 			<i class="fa fa-chevron-up fa-3"></i>

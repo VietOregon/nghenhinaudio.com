@@ -29,8 +29,26 @@ Router::connect ( '/admin/user', array (
 		'action' => 'index' 
 )
  );
-Router::connect ( '/admin/user/:action', array (
+Router::connect ( '/admin/user/:action/*', array (
 		'controller' => 'users' 
+) );
+
+Router::connect ( '/admin/categories', array (
+		'controller' => 'categories',
+		'action' => 'index' 
+)
+ );
+Router::connect ( '/admin/categories/:action/*', array (
+		'controller' => 'categories' 
+) );
+
+Router::connect ( '/admin/products', array (
+		'controller' => 'products',
+		'action' => 'index' 
+)
+ );
+Router::connect ( '/admin/products/:action/*', array (
+		'controller' => 'products' 
 ) );
 
 Router::connect ( '/:action', array (
