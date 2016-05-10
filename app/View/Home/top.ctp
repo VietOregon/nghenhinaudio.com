@@ -92,199 +92,45 @@
                     <div class="span12">
                       <div class="carousel slide" id="myCarousel1">
                         <div class="carousel-inner">
-                          <div class="item active">
-                            <ul class="thumbnails">
+                          <?php if (isset($new_products) && count($new_products) >= 8): ?>
+                          <?php for ($i=0; $i < count($new_products); $i++) { ?>
+                            <?php if ($i%4 == 0): ?>
+                              <?php if ($i == 0): ?>
+                              <div class="item active">
+                              <?php else: ?>
+                              <div class="item">
+                              <?php endif; ?>
+                              <ul class="thumbnails">         
+                            <?php endif; ?>
                               <li class="span3">
                                 <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
+                                  <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['id']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>">
+                                    <img src="<?php echo $base_url . 'img/products/' . $new_products[$i]["ProductImage"]["image_url"];?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>" style="height: 100%" />
+                                  </a>
                                 </div>
                                 <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
+                                  <h4>
+                                  <?php 
+                                  if(!empty($new_products[$i]['Product']['product_price'])) {
+                                    echo $new_products[$i]['Product']['product_price'];
+                                  } else {
+                                    echo '<span>&nbsp;</span>';
+                                  } ?>
+                                  </h4>
+                                  <h4>
+                                    <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['id']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>"><?php echo $new_products[$i]['Product']['product_name']; ?></a>
+                                  </h4>
                                 </div>
                               </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1111/3kshop-jbl-everest-elite-300-white-1.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1253/3kshop-klipsch-image-x7i-1.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="item">
-                            <ul class="thumbnails">
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1260/3kshop-fiio-em3-cover.png" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/865/3kshop-bose-quietcomfort-20i-white.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1311/3kshop-sony-mdr-zx310ap-1.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1256/3kshop-klipsch-s3m-2.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter"> 
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
+                            <?php if (($i+1)%4 == 0): ?>
+                            </ul></div>         
+                            <?php endif; ?>
+                          <?php } ?>
+                          <?php endif; ?>
                         </div>
                         <div class="control-box">
                           <a data-slide="prev" href="#myCarousel1" class="carousel-control left">‹</a>
                           <a data-slide="next" href="#myCarousel1" class="carousel-control right">›</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 Module Module-161">
-          <div class="ModuleContent">
-            <section class="cc-carousel blog box">
-              <div class="products">
-                <div class="header alternate">
-                  <h3 class="title ic-com2">Sản phẩm sắp về</h3>
-                </div>
-                <div class="container-fluid">
-                  <div class="row-fluid">
-                    <div class="span12">
-                      <div class="carousel slide" id="myCarousel2">
-                        <div class="carousel-inner">
-                          <div class="item active">
-                            <ul class="thumbnails">
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1108/3kshop-jbl-everest-300-black-4.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1111/3kshop-jbl-everest-elite-300-white-1.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1253/3kshop-klipsch-image-x7i-1.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="item">
-                            <ul class="thumbnails">
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1260/3kshop-fiio-em3-cover.png" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/865/3kshop-bose-quietcomfort-20i-white.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1311/3kshop-sony-mdr-zx310ap-1.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                              <li class="span3">
-                                <div class="thumbnail">
-                                  <a href="#"><img src="http://www.3kshop.vn/Data/Sites/1/Product/1256/3kshop-klipsch-s3m-2.jpg" alt=""></a>
-                                </div>
-                                <div class="caption alignCenter">
-                                  <h4>650.000 đ</h4>
-                                  <p>Praesent commodo</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="control-box">
-                          <a data-slide="prev" href="#myCarousel2" class="carousel-control left">‹</a>
-                          <a data-slide="next" href="#myCarousel2" class="carousel-control right">›</a>
                         </div>
                       </div>
                     </div>

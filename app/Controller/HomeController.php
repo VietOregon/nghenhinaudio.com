@@ -2,12 +2,14 @@
 App::uses ( 'AppController', 'Controller' );
 App::uses ( 'CakeEmail', 'Network/Email' );
 class HomeController extends AppController {
+    public $uses = array('Product', 'Category', 'SelectOption', 'ProductImage');
 	public function beforeFilter() {
         parent::beforeFilter();
-
         $this->Auth->allow();
     }
 	public function top() {
+		$new_products = $this->Product->getNewProduct();
+		$this->set ( 'new_products', $new_products);
 		$this->set ( 'title_for_layout', __ ( 'TITLE_1' ) );
 		$this->set ( 'description_for_meta', __ ( 'META_DESCRIPTION_1' ) );
 		$this->set ( 'keyword_for_meta', __ ( 'META_KEYWORD_1' ) );
@@ -70,7 +72,24 @@ class HomeController extends AppController {
 		$this->set ( 'keyword_for_meta', __ ( 'META_KEYWORD_2' ) );
 		$this->set ( 'topic_path', __ ( 'TOPIC_PATH_2' ) );
 	}
-	public function product() {
+	public function product($id) {
+		$this->Product->id = $id;
+        if (!$this->Product->exists()) {
+            $this->Session->setFlash(
+                'Sản phẩm không tồn tại.',
+                'default',
+                array('class' => 'error')
+            );
+            return $this->redirect(array('action' =>'/'));
+        }
+        $product = $this->Product->getProductById($id);
+        $categories = $this->Category->getCategoryByProductType($product['Product']['product_type']);
+        $related_products  = $this->Product->getRelatedProduct($product['Product']['product_type']);
+        $product_img = $this->ProductImage->getProductImgByProductId($id);
+        $this->set('product', $product);
+        $this->set('categories', $categories);
+        $this->set('related_products', $related_products);
+        $this->set('product_img', $product_img);
 		$this->set ( 'title_for_layout', __ ( 'TITLE_3' ) );
 		$this->set ( 'description_for_meta', __ ( 'META_DESCRIPTION_3' ) );
 		$this->set ( 'keyword_for_meta', __ ( 'META_KEYWORD_3' ) );

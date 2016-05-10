@@ -39,6 +39,18 @@ class Category extends AppModel {
       return $this->find('first', $options);
     }
 
+    public function getCategoryByProductType($product_type)
+    {
+      $options['fields'] = array(
+        'Category.id',
+        'Category.category_name',
+        'Category.product_type',
+      );
+      $options['conditions']['Category.product_type ='] = $product_type;
+      $options['conditions']['Category.del_flag'] = 'N';
+      return $this->find('all', $options);
+    }
+
     public function getParentCategoryByProductType($product_type, $is_parent)
     {
       $options['fields'] = array(

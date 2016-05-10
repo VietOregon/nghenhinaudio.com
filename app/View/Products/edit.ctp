@@ -1,6 +1,7 @@
 <?php echo $this->Html->script('ckeditor/ckeditor');?>
+<?php echo $this->Html->script('products/jquery.multifile');?>
 <?php echo $this->Html->script('products/product');?>
-<?php echo $this->Html->css('views/product');?>
+<?php echo $this->Html->css('views/product/product');?>
 <div class="breadcrumbs container">
 	<ol class="pull-right breadcrumb">
 		<li>
@@ -63,6 +64,12 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="inputProductPriceSale" class="col-sm-3 control-label">Giá đã giảm: </label>
+            <div class="col-sm-9">
+              <input name="data[Product][product_price_sale]" placeholder="Giá đã giảm " class="form-control" type="text" id="productPriceSale" value="<?php echo $product['Product']['product_price']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
             <label for="inputWarrantyTime" class="col-sm-3 control-label">Thời hạn bảo hành: </label>
             <div class="col-sm-9">
               <input type="date" name="data[Product][warranty_time]" class="form-control" placeholder="tháng/ngày/năm" value="<?php echo $product['Product']['warranty_time']; ?>">
@@ -82,6 +89,76 @@
                   'description',
                   array (
                     'value' => $product['Product']['description'],
+                    'class' => 'ckeditor'
+                  )
+                );
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputOverview" class="col-sm-3 control-label">Tổng quan: </label>
+            <div class="col-sm-9">
+              <?php
+                echo $this->Form->textarea (
+                  'overview',
+                  array (
+                    'value' => $product['Product']['overview'],
+                    'class' => 'ckeditor'
+                  )
+                );
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputSpecification" class="col-sm-3 control-label">Thông số kỹ thuật: </label>
+            <div class="col-sm-9">
+              <?php
+                echo $this->Form->textarea (
+                  'specification',
+                  array (
+                    'value' => $product['Product']['specification'],
+                    'class' => 'ckeditor'
+                  )
+                );
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputReview" class="col-sm-3 control-label">Nhận xét: </label>
+            <div class="col-sm-9">
+              <?php
+                echo $this->Form->textarea (
+                  'review',
+                  array (
+                    'value' => $product['Product']['review'],
+                    'class' => 'ckeditor'
+                  )
+                );
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputVideo" class="col-sm-3 control-label">Video sản phẩm: </label>
+            <div class="col-sm-9">
+              <?php
+                echo $this->Form->textarea (
+                  'video',
+                  array (
+                    'value' => $product['Product']['video'],
+                    'class' => 'ckeditor'
+                  )
+                );
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputCustomerReview" class="col-sm-3 control-label">Phản hồi khách hàng: </label>
+            <div class="col-sm-9">
+              <?php
+                echo $this->Form->textarea (
+                  'customer_review',
+                  array (
+                    'value' => $product['Product']['customer_review'],
                     'class' => 'ckeditor'
                   )
                 );
@@ -123,6 +200,12 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="inputProductTag" class="col-sm-3 control-label">Từ khóa sản phẩm: </label>
+            <div class="col-sm-9">
+              <input name="data[Product][product_tag]" placeholder="Nhập các từ khóa sản phẩm phân cách bằng các dầu ','" class="form-control" type="text" id="productTag" value="<?php echo $product['Product']['product_tag']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
             <label for="inputSeoDescription" class="col-sm-3 control-label">Loại sản phẩm: </label>
             <div class="col-sm-9">
               <select name="data[Product][product_type]" class="form-control" style="padding: 7px;" id="productType" required="required" onchange="selectProductType('edit');">
@@ -147,10 +230,21 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="inputCategoryId" class="col-sm-3 control-label">Ảnh sản phẩm: </label>
+            <label for="inputImg"  class="col-sm-3 control-label">Ảnh liên quan <span class="text-danger">(* Chỉ nên chọn tối đa 5 ảnh)</span>: </label>
             <div class="col-sm-9">
-              <input type="file" name="data[ProductImage][image][]" multiple="multiple" id="ProductFiles" class="form-control" accept="image/*" >
-              <label for="inputCategoryId" class="control-label text-danger">(* Chỉ nên chọn đa 5 ảnh)</label>
+              <div class="MultiFile-list" id="MultiFile1_wrap_list">
+                <input type="file" name="data[ProductImage][image][]" class="multi with-preview mgt20" multiple accept="image/*" />
+                <?php
+                  foreach($productImgs as $productImgs):
+                    echo '<div class="MultiImg-label" id="oldImg' . $productImgs['ProductImage']['id'] . '" data-id="' . $productImgs['ProductImage']['id'] . '">';
+                    echo '<a class="MultiFile-remove" href="javascript:void(0);" onclick="removeImg(this);">Xóa</a>';
+                    echo '<span class="MultiFile-label">';
+                    echo '<span class="MultiFile-title">' . $productImgs['ProductImage']['image_url'] . '</span>';
+                    echo '<img class="MultiFile-preview" style="max-width: 250px;max-height:200px;" src="' . $base_url . 'img/products/' . $productImgs['ProductImage']['image_url'] . '" title="">';
+                    echo '</span></span></div>';
+                  endforeach;
+                ?>
+              </div>
             </div>
           </div>
           <div class="form-group">

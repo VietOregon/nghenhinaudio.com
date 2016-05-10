@@ -27,39 +27,48 @@
 Router::connect ( '/admin/user', array (
 		'controller' => 'users',
 		'action' => 'index' 
-)
- );
+));
+
 Router::connect ( '/admin/user/:action/*', array (
 		'controller' => 'users' 
-) );
+));
 
 Router::connect ( '/admin/categories', array (
 		'controller' => 'categories',
 		'action' => 'index' 
-)
- );
+));
+
 Router::connect ( '/admin/categories/:action/*', array (
 		'controller' => 'categories' 
-) );
+));
 
 Router::connect ( '/admin/products', array (
 		'controller' => 'products',
 		'action' => 'index' 
-)
- );
+));
+
 Router::connect ( '/admin/products/:action/*', array (
 		'controller' => 'products' 
-) );
-
-Router::connect ( '/:action', array (
-		'controller' => 'home' 
-) );
+));
 
 Router::connect ( '/', array (
-		'controller' => 'home',
-		'action' => 'top',
-		'home' 
-) );
+	'controller' => 'home',
+	'action' => 'top',
+	'home' 
+));
+
+Router::connect(
+    '/san-pham/*',
+    array('controller' => 'Home', 'action' => 'product'),
+    array(
+        'pass' => array('id'),
+        'id' => '[0-9]+'
+    )
+);
+
+/*Router::connect ( '/:action/*', array (
+	'controller' => 'home' 
+) );*/
 
 /**
  * Load all plugin routes.

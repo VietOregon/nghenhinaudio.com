@@ -82,12 +82,11 @@ class AppController extends Controller {
 	
 	public function beforeFilter() {
 		$this->__switch_lang ();
-        $this->layout = 'default';
         $this->set('appRoot', $this->base);
+		$this->set('base_url', 'http://'.$_SERVER['SERVER_NAME'].Router::url('/'));
     }
 
 	function beforeRender() {
         $this->set('auth', $this->Auth->user());
-		$this->set('base_url', 'http://'.$_SERVER['SERVER_NAME'].Router::url('/'));
 	}
 }

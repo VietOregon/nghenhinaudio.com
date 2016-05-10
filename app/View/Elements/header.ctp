@@ -11,7 +11,7 @@
 						<!-- Logo -->
 						<div class="navbar-brand Module Module-135">
 							<div class="ModuleContent">
-								<a href="/"><img alt="3KShop-logo"
+								<a href="<?php echo $base_url; ?>"><img alt="3KShop-logo"
 									src="/img/headed/untitled-1.jpg"></a>
 							</div>
 						</div>
