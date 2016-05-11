@@ -26,6 +26,7 @@ class ProductImage extends AppModel {
   public function getProductImgByProductId($product_id = null)
   {
     $options['conditions']['ProductImage.product_id ='] = $product_id;
+    $options['limit'] = '5';
     return $this->find('all', $options);
   }
 }

@@ -39,3 +39,10 @@ function selectProductType() {
         }
     });
 }
+
+function removeImg(input) {
+    img_id = input.parentElement.attributes['id'].value;
+    $('#'+img_id).css('display', 'none');
+    img_remove_id = $('#'+img_id).attr('data-id');
+    $('#'+img_id).append('<input type="hidden" name="data[ProductImage][img_remove_id][]" value="' + img_remove_id + '" />');
+}

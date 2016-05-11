@@ -27,8 +27,7 @@ class ProductsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->layout = 'admin';  
-
+        $this->layout = 'admin';
         $this->Auth->allow('');
     }
 
@@ -131,6 +130,8 @@ class ProductsController extends AppController {
             }
         }
         $product_types = $this->SelectOption->getOptionByColumnName('product_type');
+        $productImgs = $this->ProductImage->getProductImgByProductId($id);
+        $this->set('productImgs', $productImgs);
         $this->set('product_types', $product_types);
         $this->set('product', $product);
     }
@@ -185,17 +186,23 @@ class ProductsController extends AppController {
                 $dir = new Folder(PRODUCT_IMG_FOLDER.DS.$folderName, true, 0777);
             }
             $tmpImage = array();
-            if ($requestData['ProductImage']['image'][0]['tmp_name'] != '') {
-                if ($function == 'edit') {
-                    $oldProductImg = $this->ProductImage->getProductImgByProductId($product_id);
-                    foreach ($oldProductImg as $key => $value) {
-                        $this->ProductImage->id = $value['ProductImage']['id'];
-                        if ($this->ProductImage->delete() 
-                            && file_exists(PRODUCT_IMG_FOLDER.DS.$value['ProductImage']['image_url'])) {
-                            $this->removeImg(PRODUCT_IMG_FOLDER.DS.$value['ProductImage']['image_url']);
-                        }
+            if ($function == 'edit' && isset($requestData['ProductImage']["img_remove_id"])) {
+                foreach ($requestData['ProductImage']["img_remove_id"] as $key => $value) {
+                    $this->ProductImage->id = $value;
+                    if (!$this->ProductImage->exists()) {
+                        continue;
+                    }
+                    $oldProductImg = $this->ProductImage->findById($value);
+                    
+                    $saveFlag = $this->ProductImage->delete();
+                    if (!$saveFlag) {
+                        break;
+                    } else {
+                        $this->removeImg(PRODUCT_IMG_FOLDER.DS.$oldProductImg['ProductImage']['image_url']);
                     }
                 }
+            }
+            if ($saveFlag && $requestData['ProductImage']['image'][0]['tmp_name'] != '') {
                 foreach ($requestData['ProductImage']['image'] as $key => $value) {
                     $productImageData[$key]['ProductImage']['product_id'] = $product_id;
                     $productImageData[$key]['ProductImage']['image_url'] = $folderName . DS . $value['name'];
@@ -206,12 +213,10 @@ class ProductsController extends AppController {
 
                 if ($saveFlag) {
                     foreach ($tmpImage as $key => $value) {
-                        if ($key < 5) {
-                            move_uploaded_file(
-                                $value['tmp_name'], 
-                                PRODUCT_IMG_FOLDER.DS.$folderName . DS . $value['name']
-                            );
-                        }
+                        move_uploaded_file(
+                            $value['tmp_name'], 
+                            PRODUCT_IMG_FOLDER.DS.$folderName . DS . $value['name']
+                        );
                     }
                 }
             }

@@ -57,6 +57,10 @@
 						<td><?php echo ($product['Product']['product_price']);  ?></td>
 					</tr>
 					<tr>
+						<td align="right">Giá đã giảm:</td>
+						<td><?php echo ($product['Product']['product_price_sale']);  ?></td>
+					</tr>
+					<tr>
 						<td align="right">Thời hạn bảo hành:</td>
 						<td><?php echo ($product['Product']['warranty_time']);  ?></td>
 					</tr>
@@ -73,6 +77,26 @@
 						<td class="pdl20"><?php echo ($product['Product']['description']);  ?></td>
 					</tr>
 					<tr>
+						<td align="right">Tổng quan:</td>
+						<td class="pdl20"><?php echo ($product['Product']['overview']);  ?></td>
+					</tr>
+					<tr>
+						<td align="right">Thông số kỹ thuật:</td>
+						<td class="pdl20"><?php echo ($product['Product']['specification']);  ?></td>
+					</tr>
+					<tr>
+						<td align="right">Review:</td>
+						<td class="pdl20"><?php echo ($product['Product']['review']);  ?></td>
+					</tr>
+					<tr>
+						<td align="right">Video:</td>
+						<td class="pdl20"><?php echo ($product['Product']['video']);  ?></td>
+					</tr>
+					<tr>
+						<td align="right">Nhận xét khách hàng:</td>
+						<td class="pdl20"><?php echo ($product['Product']['customer_review']);  ?></td>
+					</tr>
+					<tr>
 						<td align="right">Ghi chú:</td>
 						<td class="pdl20"><?php echo ($product['Product']['note']);  ?></td>
 					</tr>
@@ -82,7 +106,11 @@
 					</tr>
 					<tr>
 						<td align="right">SEO - Keyword:</td>
-						<td class="pdl20"><?php echo ($product['Product']['seo_description']);  ?></td>
+						<td class="pdl20"><?php echo ($product['Product']['seo_keyword']);  ?></td>
+					</tr>
+					<tr>
+						<td align="right">Từ khóa sản phẩm:</td>
+						<td class="pdl20"><?php echo ($product['Product']['product_tag']);  ?></td>
 					</tr>
 					<tr>
 						<td align="right">Ngày tạo:</td>

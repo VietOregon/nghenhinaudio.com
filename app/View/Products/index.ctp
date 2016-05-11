@@ -22,8 +22,6 @@
 						<th>Thời gian bảo hành</th>
 						<th>Tình trạng sản phẩm</th>
 						<th>Mô tả</th>
-						<th>SEO Mô tả</th>
-						<th>SEO Từ khóa</th>
 						<th>Ghi chú</th>
 						<th colspan="2" class="alignCenter">Action</th>
 					</tr>
@@ -44,10 +42,8 @@
 						<td> <?php echo $product ['Product'] ['product_price']; ?></td>
 						<td> <?php echo $product ['Product'] ['warranty_time']; ?></td>
 						<td> <?php echo $product ['Product'] ['product_status']; ?></td>
-						<td> <?php echo $product ['Product'] ['description']; ?></td>
-						<td> <?php echo $product ['Product'] ['seo_description']; ?></td>
-						<td> <?php echo $product ['Product'] ['seo_keyword']; ?></td>
-						<td> <?php echo $product ['Product'] ['note']; ?></td>
+						<td> <?php echo mb_strimwidth($product ['Product'] ['description'], 0, 200, " ..."); ?></td>
+						<td> <?php echo mb_strimwidth($product ['Product'] ['note'], 0, 200, " ..."); ?></td>
 						<td>
 							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 							<?php

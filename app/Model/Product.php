@@ -34,6 +34,21 @@ class Product extends AppModel {
 
   public function getProductById($product_id)
   {
+    $options['fields'] = array(
+        'Product.*',
+        'SelectOption.display_name'
+    );
+    $options['joins'] = array(
+        array(
+            'table' => 'select_options',
+            'alias' => 'SelectOption',
+            'type' => 'inner',
+            'conditions' => array(
+                'SelectOption.column_name = "product_type"' ,
+                'SelectOption.select_code = Product.product_type' ,
+            )
+        )
+    );
     $options['conditions']['Product.id ='] = $product_id;
     $options['conditions']['Product.del_flag ='] = 'N';
     return $this->find('first', $options);
@@ -42,6 +57,56 @@ class Product extends AppModel {
     $options['fields'] = array(
         'max(cast(id as signed)) as id'
     );
+    return $this->find('all', $options);
+  }
+  function getRelatedProduct($product_type) {
+    $options['fields'] = array(
+        'Product.id',
+        'Product.product_name',
+        'Product.product_price',
+        'Product.product_price_sale',
+        'ProductImage.image_url',
+    );
+    $options['joins'] = array(
+        array(
+            'table' => 'product_images',
+            'alias' => 'ProductImage',
+            'type' => 'inner',
+            'conditions' => array(
+                'ProductImage.product_id = Product.id',
+            )
+        )
+    );
+    $options['conditions']['product_type'] = $product_type;
+    $options['conditions']['Product.del_flag ='] = 'N';
+    $options['order'] = 'rand()';
+    $options['limit'] = '8';
+    $options['group'] = 'ProductImage.product_id';
+    return $this->find('all', $options);
+  }
+
+  function getNewProduct() {
+    $options['fields'] = array(
+        'Product.id',
+        'Product.product_name',
+        'Product.product_price',
+        'Product.product_price_sale',
+        'ProductImage.image_url',
+    );
+    $options['joins'] = array(
+        array(
+            'table' => 'product_images',
+            'alias' => 'ProductImage',
+            'type' => 'inner',
+            'conditions' => array(
+                'ProductImage.product_id = Product.id',
+            )
+        )
+    );
+    $options['conditions']['Product.del_flag ='] = 'N';
+    $options['order'] = 'Product.created';
+    $options['limit'] = '8';
+    $options['group'] = 'ProductImage.product_id';
     return $this->find('all', $options);
   }
 }
