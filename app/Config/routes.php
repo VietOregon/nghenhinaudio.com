@@ -51,6 +51,10 @@ Router::connect ( '/admin/products/:action/*', array (
 		'controller' => 'products' 
 ));
 
+Router::connect ( '/admin/templates/:action/*', array (
+    'controller' => 'templates',
+) );
+
 Router::connect ( '/', array (
 	'controller' => 'home',
 	'action' => 'top',

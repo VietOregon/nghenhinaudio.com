@@ -51,7 +51,7 @@ class UsersController extends AppController {
     }
 	
     public function index() {
-        $this->isAdmin();
+        // $this->isAdmin();
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
     }
@@ -142,7 +142,7 @@ class UsersController extends AppController {
             );
         return $this->redirect(array('action' => 'index'));
     }
-    public function isAdmin()
+    /*public function isAdmin()
     {
         $user_id = $this->Auth->user()['id'];
         $user_data =$this->User->read(null, $user_id)['User'];
@@ -150,5 +150,5 @@ class UsersController extends AppController {
         if ($user_data["role"] != 'admin') {
             $this->redirect(array('controller' => 'documents', 'action' => 'manage'));
         }
-    }
+    }*/
 }
