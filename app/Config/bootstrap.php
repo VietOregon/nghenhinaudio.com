@@ -114,4 +114,4 @@ CakeLog::config('error', array(
 ));
 
 //Product Img Upload Dir
-define('PRODUCT_IMG_FOLDER', realpath('..'.DS.'webroot'.DS.'img'.DS.'products'));
+define('PRODUCT_IMG_FOLDER', realpath('..'.DS.'webroot'.DS.'img'.DS.'products'.DS.'images'));

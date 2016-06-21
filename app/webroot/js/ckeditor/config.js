@@ -35,4 +35,20 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+	// config.extraPlugins = 'uploadimage';
+	config.extraPlugins = 'imageuploader';
+	// config.uploadUrl = '/uploader/upload.php';
+	// config.imageUploadUrl = '/uploader/upload.php?type=Images';
+	config.language = 'vi';
+	config.uiColor = '#7c9eff';
+    config.height = '220px';
+
+    // config.filebrowserBrowseUrl = '../ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = 'http://localhost/nghenhinaudio.com/js/ckfinder/ckfinder.html?type=Images';
+	// config.filebrowserFlashBrowseUrl = '../ckfinder/ckfinder.html?type=Flash';
+	// config.filebrowserUploadUrl = '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+	config.filebrowserImageUploadUrl = 'http://localhost/nghenhinaudio.com/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+	// config.filebrowserFlashUploadUrl = '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+
 };

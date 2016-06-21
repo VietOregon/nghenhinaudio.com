@@ -105,7 +105,7 @@
                               <li class="span3">
                                 <div class="thumbnail">
                                   <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['id']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>">
-                                    <img src="<?php echo $base_url . 'img/products/' . $new_products[$i]["ProductImage"]["image_url"];?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>" style="height: 100%" />
+                                    <img src="<?php echo $base_url . 'img/products/images/' . $new_products[$i]["ProductImage"]["image_url"];?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>" style="height: 100%" />
                                   </a>
                                 </div>
                                 <div class="caption alignCenter">

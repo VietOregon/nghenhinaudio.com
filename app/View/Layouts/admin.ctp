@@ -25,7 +25,7 @@
 		echo $this->Html->meta ( 'icon', '/favicon.ico' ); // icon
 		echo $this->element ( 'meta' );
 		echo $this->element ( 'css_admin' );
-		echo $this->element ( 'js' );
+		echo $this->element ( 'js_admin' );
 		?>
 	</head>
 	<body>
@@ -54,15 +54,18 @@
 						</li>
 						<li class="">
 							<?php
-								if ($auth["role"] == 'admin') {
-									echo $this->Html->link('Categories', array ('controller' => 'categories', 'action' => 'index'), array('style' => 'padding-top:17px;'));
-       							}
+								echo $this->Html->link('Categories', array ('controller' => 'categories', 'action' => 'index'), array('style' => 'padding-top:17px;'));
+							?>
+						</li>
+						<li class="">
+							<?php
+								echo $this->Html->link('Products', array ('controller' => 'products', 'action' => 'index'), array('style' => 'padding-top:17px;'));
 							?>
 						</li>
 						<li class="">
 							<?php
 								if ($auth["role"] == 'admin') {
-									echo $this->Html->link('Products', array ('controller' => 'products', 'action' => 'index'), array('style' => 'padding-top:17px;'));
+									echo $this->Html->link('Template', array ('controller' => 'templates', 'action' => 'index'), array('style' => 'padding-top:17px;'));
        							}
 							?>
 						</li>

@@ -52,3 +52,24 @@ img.MultiFile-preview {
     float: left;
     width: 65%;
 }
+
+.group-category {
+    width: 100%;
+    float: left;
+    border: 1px dotted #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 0 10px 10px 20px;
+}
+
+label.sub-category:first-child {
+    width: 100%;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+label.sub-category {
+    width: 40%;
+    float: left;
+    padding-left: 60px;
+}

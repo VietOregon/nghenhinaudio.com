@@ -398,8 +398,9 @@ if (window.jQuery)(function ($) {
 
 							// Hide this element (NB: display:none is evil!)
 							$(this).css({
-								position: 'absolute',
-								top: '-3000px'
+								// position: 'absolute',
+								// top: '-3000px'
+								display: 'none'
 							});
 
 							// Add new element to the form

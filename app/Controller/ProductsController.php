@@ -23,7 +23,7 @@ App::uses('Folder', 'Utility');
 
 class ProductsController extends AppController {
 
-    public $uses = array('Product', 'Category', 'SelectOption', 'ProductImage');
+    public $uses = array('Product', 'Category', 'SelectOption', 'ProductImage', 'Template');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -60,7 +60,7 @@ class ProductsController extends AppController {
                     'default',
                     array('class' => 'succes')
                 );
-                return $this->redirect(array('controller' => 'products', 'action' =>'view', $product_id));
+                return $this->redirect(array('controller' => 'products', 'action' =>'edit', $product_id));
             }
             $dsProduct->rollback($this);
             $dsProductImage->rollback($this);
@@ -118,7 +118,7 @@ class ProductsController extends AppController {
                         'default',
                         array('class' => 'succes')
                     );
-                    return $this->redirect(array('controller' => 'products', 'action' =>'view', $id));
+                    return $this->redirect(array('controller' => 'products', 'action' =>'edit', $id));
                 }
                 $dsProduct->rollback($this);
                 $dsProductImage->rollback($this);
@@ -167,7 +167,30 @@ class ProductsController extends AppController {
     public function getCategoryByProductType($product_type = null)
     {
         $categories = $this->Category->getParentCategoryByProductType($product_type, null);
-        $myjson = $this->my_json_encode($categories);
+        $parentCategories = [];
+        foreach ($categories as $key => $value) {
+            if ($value['Category']['is_parent'] == "1") {
+                $parentCategories[] = $value['Category'];
+                unset($categories[$key]);
+            }
+        }
+
+        $newCategories = [];
+        foreach ($parentCategories as $key => $parentCategory) {
+            $newCategories[$key][] = $parentCategory;
+            foreach ($categories as $key2 => $category) {
+                if ($category['Category']['parent_category'] == $parentCategory['id']) {
+                    $newCategories[$key][] = $category['Category'];
+                    unset($categories[$key2]);
+                }
+            }
+        }
+        if (count($categories) > 0) {
+            foreach ($categories as $key => $value) {
+                $newCategories[][] = $value['Category'];
+            }
+        }
+        $myjson = $this->my_json_encode($newCategories);
         echo $myjson;
         exit;
     }
@@ -180,12 +203,12 @@ class ProductsController extends AppController {
 
         if ($saveFlag) {
             $requestData['ProductImage'] = $data['ProductImage'];
-            $productImageData = array();
-            $folderName = date("mY",time());
-            if (!file_exists(PRODUCT_IMG_FOLDER.DS.$folderName)) {
-                $dir = new Folder(PRODUCT_IMG_FOLDER.DS.$folderName, true, 0777);
+            $productImageData = [];
+            // $folderName = date("mY",time());
+            if (!file_exists(PRODUCT_IMG_FOLDER)) {
+                $dir = new Folder(PRODUCT_IMG_FOLDER, true, 0777);
             }
-            $tmpImage = array();
+            $tmpImage = [];
             if ($function == 'edit' && isset($requestData['ProductImage']["img_remove_id"])) {
                 foreach ($requestData['ProductImage']["img_remove_id"] as $key => $value) {
                     $this->ProductImage->id = $value;
@@ -205,7 +228,7 @@ class ProductsController extends AppController {
             if ($saveFlag && $requestData['ProductImage']['image'][0]['tmp_name'] != '') {
                 foreach ($requestData['ProductImage']['image'] as $key => $value) {
                     $productImageData[$key]['ProductImage']['product_id'] = $product_id;
-                    $productImageData[$key]['ProductImage']['image_url'] = $folderName . DS . $value['name'];
+                    $productImageData[$key]['ProductImage']['image_url'] = $value['name'];
                     $tmpImage[$key]['name'] = $value['name'];
                     $tmpImage[$key]['tmp_name'] = $value['tmp_name'];
                 }
@@ -215,13 +238,24 @@ class ProductsController extends AppController {
                     foreach ($tmpImage as $key => $value) {
                         move_uploaded_file(
                             $value['tmp_name'], 
-                            PRODUCT_IMG_FOLDER.DS.$folderName . DS . $value['name']
+                            PRODUCT_IMG_FOLDER . DS . $value['name']
                         );
                     }
                 }
             }
         }
         return $saveFlag;
+    }
+
+    public function getTemplateBody($templateName = null)
+    {
+        $templateBody = "";
+        if (!is_null($templateName)) {
+            $templateBody = $this->Template->getTemplateByName($templateName);
+        }
+        $myjson = $this->my_json_encode($templateBody);
+        echo $myjson;
+        exit;
     }
 
     function my_json_encode($phparr)

@@ -14,7 +14,7 @@
 		// debug level is not 0 for development
 	} else {
 		// Cake webroot
-		$css_src_dir = 'src/';
+		$css_src_dir = 'admin/';
 		$dir = new Folder ( CSS . $css_src_dir );
 		$css_files = $dir->find ( '.*\.css', false );
 		$css_hash = md5 ( $dir->dirsize () );

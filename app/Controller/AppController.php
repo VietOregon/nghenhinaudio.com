@@ -81,6 +81,7 @@ class AppController extends Controller {
 	}
 	
 	public function beforeFilter() {
+		// die(var_dump('http://'.$_SERVER['SERVER_NAME'].Router::url('/') . 'js/ckfinder/'));
 		$this->__switch_lang ();
         $this->set('appRoot', $this->base);
 		$this->set('base_url', 'http://'.$_SERVER['SERVER_NAME'].Router::url('/'));

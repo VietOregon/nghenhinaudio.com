@@ -6,6 +6,7 @@ class HomeController extends AppController {
 	public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
+        // $this->layout = 'default';
     }
 	public function top() {
 		$new_products = $this->Product->getNewProduct();
