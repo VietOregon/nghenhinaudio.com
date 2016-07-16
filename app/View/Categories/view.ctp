@@ -55,6 +55,10 @@
 								<td><?php echo ($category['Category']['category_name']);  ?></td>
 							</tr>
 							<tr>
+								<td align="right">Loại:</td>
+								<td><?php echo ($category['Category']['product_type']);  ?></td>
+							</tr>
+							<tr>
 								<td align="right">Mô tả:</td>
 								<td><?php echo ($category['Category']['description']);  ?></td>
 							</tr>

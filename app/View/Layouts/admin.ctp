@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo 'VOT&C | '.$title_for_layout;?></title>
+		<title><?php echo 'VOTC | '.$title_for_layout;?></title>
 		<?php
 		echo $this->Html->meta ( 'icon', '/favicon.ico' ); // icon
 		echo $this->element ( 'meta' );

@@ -12,7 +12,7 @@
 						<div class="navbar-brand Module Module-135">
 							<div class="ModuleContent">
 								<a href="<?php echo $base_url; ?>"><img alt="3KShop-logo"
-									src="/img/headed/untitled-1.jpg"></a>
+									src="<?php echo $base_url; ?>img/headed/untitled-1.jpg"></a>
 							</div>
 						</div>
 						<!-- end logo -->
@@ -51,11 +51,9 @@
 						<div class="main-menu col-lg-10 Module Module-42">
 							<div class="ModuleContent">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a 
-										
-										href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria- expanded="true" 
-										>TAI NGHE</a>
-									<ul class="dropdown-menu">
+									<li>
+										<a href="<?php echo $base_url; ?>tai-nghe/" alt="Các loại tai nghe chính hãng">TAI NGHE</a>
+										<ul class="dropdown-menu">
 											<li>
 												<div class="content">
 													<div class="col-sm-4 col-md-4 col-lg-3">
@@ -222,18 +220,19 @@
 													
 												</div>
 											</li>
-										</ul></li>
-									<li class="dropdown"><a 
-										href="#" target="_self">SPEAKER</a>
+										</ul>
 									</li>
-									<li class="dropdown"><a
-										href="#" target="_self">MÁY NGHE NHẠC</a>
+									<li class="dropdown">
+										<a href="<?php echo $base_url; ?>speaker/" alt="Các loại loa, speaker chính hãng">SPEAKER</a>
 									</li>
-									<li class="dropdown"><a 
-										href="#" target="_self">PHỤ KIỆN</a>
+									<li class="dropdown">
+										<a href="<?php echo $base_url; ?>may-nghe-nhac/" alt="Các loại loa, speaker chính hãng">MÁY NGHE NHẠC</a>
 									</li>
-									<li class="dropdown"><a 
-										href="#" target="_self">AMP & DAC </a>
+									<li class="dropdown">
+										<a href="<?php echo $base_url; ?>phu-kien/" alt="Các loại loa, speaker chính hãng">PHỤ KIỆN</a>
+									</li>
+									<li class="dropdown">
+										<a href="<?php echo $base_url; ?>amp-dac/" alt="Các loại loa, speaker chính hãng">AMP & DAC</a>
 									</li>
 									<li><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria- expanded="true">Kiến Thức</a>
 									

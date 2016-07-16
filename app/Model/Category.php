@@ -21,50 +21,63 @@
 App::uses('AppModel', 'Model');
 
 class Category extends AppModel {
-    var $name = 'Category';
-   
-    public function getCategories()
-    {
-      $options['conditions']['Category.del_flag ='] = 'N';
-      $options['order'] = array(
-          'Category.id DESC'
-      );
-      return $this->find('all', $options);
-    }
+  var $name = 'Category';
+ 
+  public function getCategories()
+  {
+    $options['conditions']['Category.del_flag ='] = 'N';
+    $options['order'] = array(
+        'Category.id DESC'
+    );
+    return $this->find('all', $options);
+  }
 
-    public function getCategoryById($category_id)
-    {
-      $options['conditions']['Category.id ='] = $category_id;
-      $options['conditions']['Category.del_flag ='] = 'N';
-      return $this->find('first', $options);
-    }
+  public function getCategoryById($category_id)
+  {
+    $options['conditions']['Category.id ='] = $category_id;
+    $options['conditions']['Category.del_flag ='] = 'N';
+    return $this->find('first', $options);
+  }
 
-    public function getCategoryByProductType($product_type)
-    {
-      $options['fields'] = array(
-        'Category.id',
-        'Category.category_name',
-        'Category.product_type',
-      );
-      $options['conditions']['Category.product_type ='] = $product_type;
-      $options['conditions']['Category.del_flag'] = 'N';
-      return $this->find('all', $options);
-    }
+  public function getCategoryByProductType($product_type)
+  {
+    $options['fields'] = array(
+      'Category.id',
+      'Category.category_name',
+      'Category.category_slug',
+      'Category.product_type',
+    );
+    $options['conditions']['Category.product_type ='] = $product_type;
+    $options['conditions']['Category.del_flag'] = 'N';
+    return $this->find('all', $options);
+  }
 
-    public function getParentCategoryByProductType($product_type, $is_parent)
-    {
-      $options['fields'] = array(
-        'Category.id',
-        'Category.category_name',
-        'Category.product_type',
-        'Category.is_parent',
-        'Category.parent_category'
-      );
-      $options['conditions']['Category.product_type ='] = $product_type;
-      if ($is_parent != null) {
-        $options['conditions']['Category.is_parent'] = $is_parent;
-      }
-      $options['conditions']['Category.del_flag'] = 'N';
-      return $this->find('all', $options);
+  public function getParentCategoryByProductType($product_type, $is_parent)
+  {
+    $options['fields'] = array(
+      'Category.id',
+      'Category.category_name',
+      'Category.category_slug',
+      'Category.product_type',
+      'Category.is_parent',
+      'Category.parent_category'
+    );
+    $options['conditions']['Category.product_type ='] = $product_type;
+    if ($is_parent != null) {
+      $options['conditions']['Category.is_parent'] = $is_parent;
     }
+    $options['conditions']['Category.del_flag'] = 'N';
+    return $this->find('all', $options);
+  }
+
+  public function getCategoryBySlug($categorySlug) {
+    $options['fields'] = array(
+      'Category.id',
+      'Category.category_name',
+      'Category.category_slug',
+      'Category.product_type',
+    );
+    $options['conditions']['Category.category_slug = '] = $categorySlug;
+    return $this->find('first', $options);
+  }
 }

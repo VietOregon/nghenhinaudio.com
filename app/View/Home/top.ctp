@@ -5,10 +5,11 @@
           <!-- Slideshow 1 -->
           <div class="rslides_container">
             <ul class="rslides" id="slider1">
-              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-pendulumic-banner-op.jpg" /></li>
-              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-banner-master-and-dynamic-mh40-op.jpg" /></li>
-              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-pendulumic-banner-op.jpg" /></li>
-              <li><img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-banner-master-and-dynamic-mh40-op.jpg" /></li>
+              <li><img src="<?php echo $base_url; ?>img/banner/nghenhinaudio-khuyen-mai-chuong-trinh-mua-he-2016-banner.jpg" /></li>
+              <li><img src="<?php echo $base_url; ?>img/banner/nghenhinaudio-radius-twf41_2x.jpg" /></li>
+              <li><img src="<?php echo $base_url; ?>img/banner/nghenhinaudio-banner-noble-aluminum.jpg" /></li>
+              <li><img src="<?php echo $base_url; ?>img/banner/nghenhinaudio-beyer-dynamic-t1-gen2-banner.jpg" /></li>
+              <li><img src="<?php echo $base_url; ?>img/banner/nghenhinaudio-master-and-dynamic-banner.jpg" /></li>
             </ul>
           </div>
       </div>
@@ -45,27 +46,27 @@
                         <span>Xem theo tab:</span>
                       </li>
                       <li class="active">
-                        <a href="#" target="_self">
+                        <a href="<?php echo $base_url; ?>tai-nghe/" alt="Các loại tai nghe chính hãng" target="_self">
                           <span><i class="ic ic-2"></i></span>Headphones
                         </a>
                       </li>
                       <li>
-                        <a href="#" target="_self">
+                        <a href="<?php echo $base_url; ?>amp-dac/" alt="DAC / AMP chính hãng" target="_self">
                           <span><i class="ic ic-3"></i></span>DAC / AMP
                         </a>
                       </li>
                       <li>
-                        <a href="#" target="_self">
+                        <a href="<?php echo $base_url; ?>may-nghe-nhac/" alt="Máy nghe nhạc chính hãng" target="_self">
                           <span><i class="ic ic-4"></i></span>Máy nghe nhạc
                         </a>
                       </li>
                       <li>
-                        <a href="#" target="_self">
+                        <a href="<?php echo $base_url; ?>speaker/" alt="Speaker chính hãng" target="_self">
                           <span><i class="ic ic-5"></i></span>Speaker
                         </a>
                       </li>
                       <li>
-                        <a href="#" target="_self">
+                        <a href="<?php echo $base_url; ?>phu-kien/" alt="Phụ kiện chính hãng" target="_self">
                           <span><i class="ic ic-6"></i></span>Phụ kiện
                         </a>
                       </li>
@@ -92,7 +93,7 @@
                     <div class="span12">
                       <div class="carousel slide" id="myCarousel1">
                         <div class="carousel-inner">
-                          <?php if (isset($new_products) && count($new_products) >= 8): ?>
+                          <?php if (isset($new_products) && count($new_products) >= 4): ?>
                           <?php for ($i=0; $i < count($new_products); $i++) { ?>
                             <?php if ($i%4 == 0): ?>
                               <?php if ($i == 0): ?>
@@ -104,7 +105,7 @@
                             <?php endif; ?>
                               <li class="span3">
                                 <div class="thumbnail">
-                                  <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['id']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>">
+                                  <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['product_slug']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>">
                                     <img src="<?php echo $base_url . 'img/products/images/' . $new_products[$i]["ProductImage"]["image_url"];?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>" style="height: 100%" />
                                   </a>
                                 </div>
@@ -118,7 +119,7 @@
                                   } ?>
                                   </h4>
                                   <h4>
-                                    <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['id']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>"><?php echo $new_products[$i]['Product']['product_name']; ?></a>
+                                    <a href="<?php echo $base_url.'san-pham/'.$new_products[$i]['Product']['product_slug']; ?>" alt="<?php echo $new_products[$i]['Product']['product_name']; ?>"><?php echo $new_products[$i]['Product']['product_name']; ?></a>
                                   </h4>
                                 </div>
                               </li>
@@ -266,87 +267,87 @@
               <ul class="brand-list">
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-akg.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-akg.jpg" alt="nghenhinaudio-akg">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-fiio.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-fiio.jpg" alt="nghenhinaudio-fiio">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-ifi.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-ifi.jpg" alt="nghenhinaudio-ifi">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-campfire.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-campfire.jpg" alt="nghenhinaudio-campfire">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-bose.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-bose.jpg" alt="nghenhinaudio-bose">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-audio.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-audio-technica.jpg" alt="audio-technica">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-audeze.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-audeze.jpg" alt="nghenhinaudio-audeze">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-astell.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-astell-kern.jpg" alt="astell-kern">
                   </a>
                 </li>
                 <li class="w2">
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio.jpg" alt="common/nghenhinaudio">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-radius.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-radius.jpg" alt="nghenhinaudio-radius">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-furu.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-furutech.jpg" alt="nghenhinaudio-furutech">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-shure.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-shure.jpg" alt="nghenhinaudio-shure">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-hifi.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-hifiman.jpg" alt="nghenhinaudio-hifiman">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/l-jbl.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-jbl.jpg" alt="nghenhinaudio-jbl">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-cowon.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-cowon.jpg" alt="nghenhinaudio-cowon">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-noble.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-noble.jpg" alt="nghenhinaudio-noble">
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    <img src="http://www.3kshop.vn/Data/Sites/1/Banner/3kshop-sony.gif" alt="">
+                    <img src="<?php echo $base_url; ?>img/common/nghenhinaudio-sony.jpg" alt="nghenhinaudio-sony">
                   </a>
                 </li>
               </ul>

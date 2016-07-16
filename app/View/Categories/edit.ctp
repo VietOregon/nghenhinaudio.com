@@ -1,4 +1,5 @@
 <?php echo $this->Html->script('ckeditor/ckeditor');?>
+<?php echo $this->Html->script('categories/category');?>
 <div class="container-fluid mgt80">
   <div class="row">
     <div class="col-md-12">
@@ -6,7 +7,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <?php echo $this->Html->link ( 'Categories', array (
-            'controller' => 'products',
+            'controller' => 'categories',
             'action' => 'index'
           ) ); ?> / 
           <?php echo $this->Html->link ( $category['Category']['category_name'], array (
@@ -74,10 +75,10 @@
                   	<option value="">---</option>
                   	<?php
                   		foreach ($product_types as $product_type):
-                  			if ($product_type['SelectOption']['select_code'] == $category['Category']['product_type']) {
-                  				echo '<option value="' . $product_type['SelectOption']['select_code'] . '" selected >' . $product_type['SelectOption']['display_name'] . '</option>';
+                  			if ($product_type['SelectOption']['select_name'] == $category['Category']['product_type']) {
+                  				echo '<option value="' . $product_type['SelectOption']['select_name'] . '" selected >' . $product_type['SelectOption']['display_name'] . '</option>';
                   			} else {
-                  				echo '<option value="' . $product_type['SelectOption']['select_code'] . '">' . $product_type['SelectOption']['display_name'] . '</option>';
+                  				echo '<option value="' . $product_type['SelectOption']['select_name'] . '">' . $product_type['SelectOption']['display_name'] . '</option>';
                   			}
                   		endforeach;
                   	?>

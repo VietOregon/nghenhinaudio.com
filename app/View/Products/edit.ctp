@@ -201,10 +201,10 @@
                     <option value="">---</option>
                     <?php
                       foreach ($product_types as $product_type):
-                        if ($product_type['SelectOption']['select_code'] == $product['Product']['product_type']) {
-                          echo '<option value="' . $product_type['SelectOption']['select_code'] . '" selected >' . $product_type['SelectOption']['display_name'] . '</option>';
+                        if ($product_type['SelectOption']['select_name'] == $product['Product']['product_type']) {
+                          echo '<option value="' . $product_type['SelectOption']['select_name'] . '" selected >' . $product_type['SelectOption']['display_name'] . '</option>';
                         } else {
-                          echo '<option value="' .$product_type['SelectOption']['select_code']. '">' .$product_type['SelectOption']['display_name']. '</option>';
+                          echo '<option value="' .$product_type['SelectOption']['select_name']. '">' .$product_type['SelectOption']['display_name']. '</option>';
                         }
                       endforeach;
                     ?>
@@ -244,7 +244,7 @@
               </div>
             </div>
         	</form>
-          <input type="hidden" value="<?php if(isset($product['Product']['category_name']))echo $product['Product']['category_name']; ?>" id="parentCategoryHidden" />
+          <input type="hidden" value="<?php if(isset($product['Product']['category_slug']))echo $product['Product']['category_slug']; ?>" id="parentCategoryHidden" />
           <input type="hidden" value="edit" id="productAction" />
     		</div>
       </div>
