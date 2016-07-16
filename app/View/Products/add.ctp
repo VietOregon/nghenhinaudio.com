@@ -1,7 +1,4 @@
 <?php echo $this->Html->script('ckeditor/ckeditor');?>
-<?php echo $this->Html->script('products/jquery.multifile');?>
-<?php echo $this->Html->script('products/product');?>
-<?php echo $this->Html->css('views/product/product');?>
 <!-- Page head -->
 <div class="container-fluid mgt80 pdr10">
   <div class="row">
@@ -147,7 +144,7 @@
                     <option value="">---</option>
                     <?php
                       foreach ($product_types as $product_type):
-                        echo '<option value="' .$product_type['SelectOption']['select_code']. '">' .$product_type['SelectOption']['display_name']. '</option>';
+                        echo '<option value="' .$product_type['SelectOption']['select_name']. '">' .$product_type['SelectOption']['display_name']. '</option>';
                       endforeach;
                     ?>
                   </select>
@@ -184,4 +181,3 @@
 <?php echo $this->Html->script('products/jquery.multifile');?>
 <?php echo $this->Html->script('products/product');?>
 <?php echo $this->Html->css('views/product/product');?>
-<?php echo $this->Html->script('ckeditor/ckeditor');?>

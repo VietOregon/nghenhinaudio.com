@@ -38,7 +38,9 @@ class CategoriesController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Category->create();
-            if ($this->Category->save($this->request->data)) {
+            $request = $this->request->data;
+            $request["Category"]["category_slug"] = $this->sluggable($request["Category"]["category_name"]);
+            if ($this->Category->save($request)) {
                 $this->Session->setFlash(
                     'Thêm danh mục thành công.',
                     'default',
@@ -132,8 +134,7 @@ class CategoriesController extends AppController {
         return $this->redirect(array('controller' => 'categories', 'action' =>'index'));
     }
     
-    public function getCategoryByProductType($product_type = null)
-    {
+    public function getCategoryByProductType($product_type = null) {
         $is_parent = 1;
         $categories = $this->Category->getParentCategoryByProductType($product_type, $is_parent);
         $myjson = $this->my_json_encode($categories);
@@ -141,8 +142,21 @@ class CategoriesController extends AppController {
         exit;
     }
 
-    function my_json_encode($phparr)
-    {
+    function my_json_encode($phparr) {
         return json_encode($phparr);
+    }
+
+    function sluggable($str) {
+        $str = trim(mb_strtolower($str));
+        $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
+        $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
+        $str = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $str);
+        $str = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $str);
+        $str = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $str);
+        $str = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $str);
+        $str = preg_replace('/(đ)/', 'd', $str);
+        $str = preg_replace('/[^a-z0-9-\s]/', '', $str);
+        $str = preg_replace('/([\s]+)/', '-', $str);
+        return $str;
     }
 }

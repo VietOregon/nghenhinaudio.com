@@ -29,7 +29,6 @@ function selectProductType() {
     });
 }
 function checkParentCategory() {
-	selectParentCategory
 	if ($('#parentCategory').is(":checked")) {
 		$('#selectParentCategory').attr('disabled','disabled');
 	} else {

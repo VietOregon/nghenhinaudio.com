@@ -48,7 +48,7 @@
                   	<option value="">---</option>
                   	<?php
                   		foreach ($product_types as $product_type):
-                  			echo '<option value="' .$product_type['SelectOption']['select_code']. '">' .$product_type['SelectOption']['display_name']. '</option>';
+                  			echo '<option value="' .$product_type['SelectOption']['select_name']. '">' .$product_type['SelectOption']['display_name']. '</option>';
                   		endforeach;
                   	?>
       	     			</select>

@@ -198,13 +198,15 @@ class ProductsController extends AppController {
     public function saveProduct($data, $product_id, $function)
     {
         $requestData['Product'] = $data['Product'];
-        $requestData['Product']['category_name'] = implode(",", $requestData['Product']['category_name']);
+
+        if (isset($requestData['Product']['category_slug'])) {
+	        $requestData['Product']['category_slug'] = implode(",", $requestData['Product']['category_slug']);
+        }
+        $requestData['Product']['product_slug'] = $this->sluggable($requestData['Product']['product_name']);
         $saveFlag = $this->Product->save($requestData['Product']);
 
         if ($saveFlag) {
             $requestData['ProductImage'] = $data['ProductImage'];
-            $productImageData = [];
-            // $folderName = date("mY",time());
             if (!file_exists(PRODUCT_IMG_FOLDER)) {
                 $dir = new Folder(PRODUCT_IMG_FOLDER, true, 0777);
             }
@@ -221,25 +223,37 @@ class ProductsController extends AppController {
                     if (!$saveFlag) {
                         break;
                     } else {
-                        $this->removeImg(PRODUCT_IMG_FOLDER.DS.$oldProductImg['ProductImage']['image_url']);
+                        if ($oldProductImg['ProductImage']['image_url'] != "nophoto.jpg") {
+                            $this->removeImg(PRODUCT_IMG_FOLDER.DS.$oldProductImg['ProductImage']['image_url']);
+                        }
                     }
                 }
             }
-            if ($saveFlag && $requestData['ProductImage']['image'][0]['tmp_name'] != '') {
-                foreach ($requestData['ProductImage']['image'] as $key => $value) {
-                    $productImageData[$key]['ProductImage']['product_id'] = $product_id;
-                    $productImageData[$key]['ProductImage']['image_url'] = $value['name'];
-                    $tmpImage[$key]['name'] = $value['name'];
-                    $tmpImage[$key]['tmp_name'] = $value['tmp_name'];
-                }
-                $saveFlag = $this->ProductImage->saveMany($productImageData);   
+            if ($saveFlag) {
+                $productImageData = [];
+                if ($requestData['ProductImage']['image'][0]['tmp_name'] != '') {
+                    foreach ($requestData['ProductImage']['image'] as $key => $value) {
+                        $productImageData[$key]['ProductImage']['product_id'] = $product_id;
+                        $productImageData[$key]['ProductImage']['image_url'] = $value['name'];
+                        $tmpImage[$key]['name'] = $value['name'];
+                        $tmpImage[$key]['tmp_name'] = $value['tmp_name'];
+                    }
+                    $saveFlag = $this->ProductImage->saveMany($productImageData);   
 
-                if ($saveFlag) {
-                    foreach ($tmpImage as $key => $value) {
-                        move_uploaded_file(
-                            $value['tmp_name'], 
-                            PRODUCT_IMG_FOLDER . DS . $value['name']
-                        );
+                    if ($saveFlag) {
+                        foreach ($tmpImage as $key => $value) {
+                            move_uploaded_file(
+                                $value['tmp_name'], 
+                                PRODUCT_IMG_FOLDER . DS . $value['name']
+                            );
+                        }
+                    }
+                } else {
+                    $checkImageExist = $this->ProductImage->getProductImgByProductId($product_id);
+                    if (count($checkImageExist) === 0) {
+                        $productImageData['ProductImage']['product_id'] = $product_id;
+                        $productImageData['ProductImage']['image_url'] = "nophoto.jpg";
+                        $saveFlag = $this->ProductImage->save($productImageData);   
                     }
                 }
             }
@@ -265,5 +279,19 @@ class ProductsController extends AppController {
 
     function removeImg($file_path = null) {
         unlink($file_path);
+    }
+
+    function sluggable($str) {
+        $str = trim(mb_strtolower($str));
+        $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
+        $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
+        $str = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $str);
+        $str = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $str);
+        $str = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $str);
+        $str = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $str);
+        $str = preg_replace('/(đ)/', 'd', $str);
+        $str = preg_replace('/[^a-z0-9-\s]/', '', $str);
+        $str = preg_replace('/([\s]+)/', '-', $str);
+        return $str;
     }
 }

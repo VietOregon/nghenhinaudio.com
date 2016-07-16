@@ -9,8 +9,6 @@
 		<meta property="og:site_name" content="">
 		<meta itemprop="name" content="DAC / AMP">
 		<meta itemprop="description" content="">
-		<link rel="mask-icon" href="http://www.3kshop.vn/3k-logo.svg" color="#d20c0c">
-		<link rel="icon" type="image/png" href="http://www.3kshop.vn/Data/Sites/1/skins/default/icons/favicon-32x32.png" sizes="32x32">
 		<link rel="search" type="application/opensearchdescription+xml" title="" href="#">
 		<meta name="viewport" content="width=670, initial-scale=0.45, minimum-scale=0.45">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">

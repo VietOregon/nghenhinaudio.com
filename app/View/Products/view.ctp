@@ -62,8 +62,16 @@
 								<td><?php echo ($product['Product']['product_status']);  ?></td>
 							</tr>
 							<tr>
+								<td align="right">Loại sản phẩm:</td>
+								<td><?php echo $product ['Product'] ['product_type'];  ?></td>
+							</tr>
+							<tr>
 								<td align="right">Danh mục sản phẩm:</td>
-								<td><?php echo ($product['Product']['category_name']);  ?></td>
+								<td><?php echo implode("<br />", explode(",", $product ['Product'] ['category_slug']));  ?></td>
+							</tr>
+							<tr>
+								<td align="right">Từ khóa sản phẩm:</td>
+								<td><?php echo ($product['Product']['seo_keyword']);  ?></td>
 							</tr>
 							<tr>
 								<td align="right">Mô tả:</td>

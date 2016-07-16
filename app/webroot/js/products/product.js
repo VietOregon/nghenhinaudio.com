@@ -20,16 +20,15 @@ function selectProductType() {
                 var str = '';
                 if(myjson != null && myjson.length > 0){
                     for(var i=0;i<myjson.length;i++){
-                        //console.log(myjson[i]);
                         var categories = myjson[i];
                         if (categories.length > 0) {
                             str += '<div class="group-category">';
                             for (var j = 0; j < categories.length; j++) {
                                 str += '<label class="sub-category checkbox-inline">';
-                                str += '<input type="checkbox" name="data[Product][category_name][]" id="category_' +
+                                str += '<input type="checkbox" name="data[Product][category_slug][]" id="category_' +
                                 categories[j]['id']+ '" value="' +
-                                categories[j]['category_name'] + '"';
-                                if (parentCategory != '' && parentCategory.indexOf(categories[j]['category_name']) != -1) {
+                                categories[j]['category_slug'] + '"';
+                                if (parentCategory != '' && parentCategory.indexOf(categories[j]['category_slug']) != -1) {
                                     str += ' checked ';
                                 }
                                 str += '>' + categories[j]['category_name'];
@@ -39,7 +38,7 @@ function selectProductType() {
                         }
                     }
                 } else {
-                    str += '<input type="hidden" name="data[Product][category_name][]" value="" >';
+                    str += '<input type="hidden" name="data[Product][category_slug][]" value="" >';
                 }
                 $("#categoryCheckbox").html(str);
             }

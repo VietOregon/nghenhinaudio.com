@@ -24,7 +24,7 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-Router::connect ( '/admin/user', array (
+Router::connect ( '/admin', array (
 		'controller' => 'users',
 		'action' => 'index' 
 ));
@@ -69,6 +69,36 @@ Router::connect(
         'id' => '[0-9]+'
     )
 );
+
+Router::connect ( '/tai-nghe/', array (
+	'controller' => 'home',
+	'action' => 'tainghe',
+) );
+
+Router::connect ( '/speaker/', array (
+	'controller' => 'home',
+	'action' => 'speaker',
+) );
+
+Router::connect ( '/may-nghe-nhac/', array (
+	'controller' => 'home',
+	'action' => 'maynghenhac',
+) );
+
+Router::connect ( '/amp-dac/', array (
+	'controller' => 'home',
+	'action' => 'ampdac',
+) );
+
+Router::connect ( '/phu-kien/', array (
+	'controller' => 'home',
+	'action' => 'phukien',
+) );
+
+Router::connect ( '/danh-muc/*', array (
+	'controller' => 'home',
+	'action' => 'danhmuc',
+) );
 
 /*Router::connect ( '/:action/*', array (
 	'controller' => 'home' 

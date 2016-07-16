@@ -34,17 +34,19 @@
 		            <col width="10%"></col>
 		            <col width="10%"></col>
 		            <col width="10%"></col>
-		            <col width="20%"></col>
 		            <col width="10%"></col>
+		            <col width="15%"></col>
 		            <col width="10%"></col>
+		            <col width="5%"></col>
 		            <thead>
 		              <tr>
-						<th>Tên sản phẩm</th>
-						<th>Mã sản phẩm</th>
-						<th>Nhóm sản phẩm</th>
-						<th>Giá sản phẩm</th>
+						<th>Tên SP</th>
+						<th>Mã SP</th>
+						<th>Loại SP</th>
+						<th>Nhóm SP</th>
+						<th>Giá SP</th>
 						<th>Thời gian bảo hành</th>
-						<th>Tình trạng sản phẩm</th>
+						<th>Tình trạng SP</th>
 						<th>Mô tả</th>
 						<th>Ghi chú</th>
 						<th>Action</th>
@@ -62,7 +64,8 @@
 								?>
 							</td>
 							<td> <?php echo $product ['Product'] ['product_code']; ?></td>
-							<td> <?php echo $product ['Product'] ['category_name']; ?></td>
+							<td> <?php echo $product ['Product'] ['product_type']; ?></td>
+							<td> <?php echo implode("<br />", explode(",", $product ['Product'] ['category_slug'])); ?></td>
 							<td> <?php echo $product ['Product'] ['product_price']; ?></td>
 							<td> <?php echo $product ['Product'] ['warranty_time']; ?></td>
 							<td> <?php echo $product ['Product'] ['product_status']; ?></td>

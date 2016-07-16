@@ -6,7 +6,6 @@ class HomeController extends AppController {
 	public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
-        // $this->layout = 'default';
     }
 	public function top() {
 		$new_products = $this->Product->getNewProduct();
@@ -70,23 +69,59 @@ class HomeController extends AppController {
 	public function recruit() {
 		$this->set ( 'title_for_layout', __ ( 'TITLE_2' ) );
 		$this->set ( 'description_for_meta', __ ( 'META_DESCRIPTION_2' ) );
-		$this->set ( 'keyword_for_meta', __ ( 'META_KEYWORD_2' ) );
-		$this->set ( 'topic_path', __ ( 'TOPIC_PATH_2' ) );
 	}
-	public function product($id) {
-		$this->Product->id = $id;
-        if (!$this->Product->exists()) {
-            $this->Session->setFlash(
-                'Sản phẩm không tồn tại.',
-                'default',
-                array('class' => 'error')
-            );
-            return $this->redirect(array('action' =>'/'));
+	public function tainghe() {
+		$categories = $this->Category->getCategoryByProductType('tai-nghe');
+		$products = $this->Product->getProductByProductType('tai-nghe');
+
+		$this->set ( 'categories', $categories );
+		$this->set ( 'products', $products );
+	}
+	public function speaker() {
+		$categories = $this->Category->getCategoryByProductType('speaker');
+		$products = $this->Product->getProductByProductType('speaker');
+
+		$this->set ( 'categories', $categories );
+		$this->set ( 'products', $products );
+	}
+	public function maynghenhac() {
+		$categories = $this->Category->getCategoryByProductType('may-nghe-nhac');
+		$products = $this->Product->getProductByProductType('may-nghe-nhac');
+
+		$this->set ( 'categories', $categories );
+		$this->set ( 'products', $products );
+	}
+	public function ampdac() {
+		$categories = $this->Category->getCategoryByProductType('amp-dac');
+		$products = $this->Product->getProductByProductType('amp-dac');
+
+		$this->set ( 'categories', $categories );
+		$this->set ( 'products', $products );
+	}
+	public function phukien() {
+		$categories = $this->Category->getCategoryByProductType('phu-kien');
+		$products = $this->Product->getProductByProductType('phu-kien');
+
+		$this->set ( 'categories', $categories );
+		$this->set ( 'products', $products );
+	}
+	public function danhmuc($categorySlug) {
+		$category = $this->Category->getCategoryBySlug($categorySlug);
+		$relatedCategories = $this->Category->getCategoryByProductType($category["Category"]["product_type"]);
+		$products = $this->Product->getProductByCategorySlug($categorySlug, null);
+
+		$this->set ( 'relatedCategories', $relatedCategories );
+		$this->set ( 'category', $category );
+		$this->set ( 'products', $products );
+	}
+	public function product($product_slug) {
+        $product = $this->Product->getProductBySlug($product_slug);
+        if (count($product) === 0) {
+            return $this->redirect('/');
         }
-        $product = $this->Product->getProductById($id);
         $categories = $this->Category->getCategoryByProductType($product['Product']['product_type']);
         $related_products  = $this->Product->getRelatedProduct($product['Product']['product_type']);
-        $product_img = $this->ProductImage->getProductImgByProductId($id);
+        $product_img = $this->ProductImage->getProductImgByProductId($product ["Product"]["id"]);
         $this->set('product', $product);
         $this->set('categories', $categories);
         $this->set('related_products', $related_products);
